@@ -12,7 +12,9 @@ defmodule Mix.Tasks.Aoc do
       IO.stream(:stdio, :line)
       |> Enum.join("")
 
-    output = dayModule.part1(input)
-    IO.puts(output)
+    output1 = dayModule.part1(input)
+    IO.puts(output1)
+    output2 = dayModule.part2(input)
+    IO.puts(output2)
   end
 end
