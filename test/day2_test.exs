@@ -7,14 +7,14 @@ defmodule Day2Test do
     1698522-1698528,446443-446449,38593856-38593862,565653-565659,
     824824821-824824827,2121212118-2121212124
     """
-    |> String.replace("\n","")
+    |> String.replace("\n", "")
   end
 
   test "part1" do
-    assert Day2.part1(example_input()) == 1227775554
+    assert Day2.part1(example_input()) == 1_227_775_554
   end
 
   test "part2" do
-    assert Day2.part2(example_input()) !== :todo
+    assert Day2.part2(example_input()) === 4_174_379_265
   end
 end
