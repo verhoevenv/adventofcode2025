@@ -7,6 +7,7 @@ defmodule Mix.Tasks.Aoc do
       case args do
         ["1"] -> Day1
         ["2"] -> Day2
+        ["3"] -> Day3
       end
 
     input =
