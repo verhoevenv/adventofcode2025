@@ -22,6 +22,6 @@ defmodule Day4Test do
   end
 
   test "part2" do
-    assert Day4.part2(example_input()) == :done
+    assert Day4.part2(example_input()) == 43
   end
 end

@@ -2,16 +2,13 @@ defmodule Day4 do
   def part1(input) do
     {grid, size} = to_grid(input)
 
-    grid
-    |> Map.filter(fn {_, v} -> v == "@" end)
-    |> Map.keys()
-    |> Enum.map(fn k -> {k, count_roll_neighbours(grid, size, k)} end)
-    |> Enum.filter(fn {_, v} -> v < 4 end)
+    accessible_rolls(grid, size)
     |> Enum.count()
   end
 
-  def part2(_input) do
-    :todo
+  def part2(input) do
+    {grid, size} = to_grid(input)
+    remove_accessible_rolls(grid, size)
   end
 
   defp to_grid(input) do
@@ -44,5 +41,30 @@ defmodule Day4 do
     neighbours(pos, size)
     |> Enum.filter(fn n -> grid[n] == "@" end)
     |> Enum.count()
+  end
+
+  defp accessible_rolls(grid, size) do
+    grid
+    |> Map.filter(fn {_, v} -> v == "@" end)
+    |> Map.keys()
+    |> Enum.map(fn k -> {k, count_roll_neighbours(grid, size, k)} end)
+    |> Enum.filter(fn {_, v} -> v < 4 end)
+    |> Enum.map(fn {k, _} -> k end)
+  end
+
+  defp remove_accessible_rolls(grid, size) do
+    to_remove = accessible_rolls(grid, size)
+
+    if length(to_remove) == 0 do
+      0
+    else
+      new_grid = remove_rolls(grid, to_remove)
+      further_removed = remove_accessible_rolls(new_grid, size)
+      length(to_remove) + further_removed
+    end
+  end
+
+  defp remove_rolls(grid, to_remove) do
+    Map.merge(grid, Map.from_keys(to_remove, "."))
   end
 end
