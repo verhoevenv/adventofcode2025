@@ -23,6 +23,6 @@ defmodule Day5Test do
   end
 
   test "part2" do
-    assert Day5.part2(example_input()) == "done"
+    assert Day5.part2(example_input()) == 14
   end
 end
