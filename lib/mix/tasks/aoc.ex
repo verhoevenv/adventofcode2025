@@ -10,6 +10,7 @@ defmodule Mix.Tasks.Aoc do
         ["3"] -> Day3
         ["4"] -> Day4
         ["5"] -> Day5
+        ["6"] -> Day6
       end
 
     input =
