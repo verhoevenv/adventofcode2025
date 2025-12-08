@@ -32,6 +32,6 @@ defmodule Day8Test do
   end
 
   test "part2" do
-    assert Day8.part2(example_input()) == "done"
+    assert Day8.part2(example_input()) == 25272
   end
 end
